@@ -1,13 +1,23 @@
 body {
+  margin: 0;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgb(175, 175, 175);
 }
 
+.rwa-header {
+  margin: 0;
+  padding: 30px;
+  border-color: #005aaa;
+  background: #005aaa;
+  color: white;
+}
+
 table {
+  margin: 0;
   text-align: left;
   width: 100%;
-  background-color: rgb(76, 76, 173);
+  background-color: #005aaa;
   color: white;
 }
 
