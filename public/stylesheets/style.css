@@ -1,6 +1,29 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(175, 175, 175);
+}
+
+table {
+  text-align: left;
+  width: 100%;
+  background-color: rgb(76, 76, 173);
+  color: white;
+}
+
+.menu {
+  float:left;
+  width:20%;
+  text-align:center;
+}
+
+.menu a {
+  background-color:lightblue;
+  padding:8px;
+  margin-top:20px;
+  display:block;
+  width:100%;
+  color:white;
 }
 
 a {
