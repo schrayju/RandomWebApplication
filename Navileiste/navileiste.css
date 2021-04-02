@@ -439,7 +439,7 @@ body{
 
     .menu_item{
         display: flex;
-        justify-content:;
+        justify-content:space-between;
         
         margin: 0 5px 0 5px;
         padding: 0px 10px 15px 10px;
