@@ -1,14 +1,13 @@
 <html>
 
 <head>
-  <title>Onlineshop Hochschule Alb-Sig</title>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+  <title>Express</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/warenkorb.css" />
   <link rel="stylesheet" type_="text/css" href="/stylesheets/navileiste.css">
   <script src="script.js"></script>
 </head>
 
 <body>
-  <!--FLEXBOX-->
   <header>
     <nav>
       <div class="flexbox">
@@ -45,51 +44,58 @@
       </div>
     </nav>
   </header>
-  <!--ENDE FLEXBOX-->
-
   <main>
-    <div class="slideshow-container">
-      <div id="slideone">
-        <img class="kate" src="bilder/maske2.jpeg" style="width:100%">
-        <div class="text"></div>
+    <div class="warencontainer">
+      <div class="links">
+        <div>
+          Erreichbarkeit...
+        </div>
       </div>
-    
-      <div id="slidetwo" class="slidetwo">
-        <img class="kate" src="bilder/tshirt.jpeg" style="width:100%">
-        <div class="text"></div>
-      </div>
+      <div class="rechts">
 
-      <div class="flexbutton">
-        <div onclick="myFunction()" class="slidebutton">&#10094;</div>
-        <div onclick="myFunction()" class="slidebutton">&#10095;</dvi>
-      </div>
-    </div>
-    <br>
-    
+        <div class="deinwarenkorb">
+          <p>DEIN WARENKORB</p>
+        </div>
 
-    <!--Kategorien Container-->
-    <div class="flexcontainer-kategorien">
-      <div onmouseover="bigImg(this)" onmouseout="normalImg(this)" class="flexelement-box1">
-        <a href=""><img src="bilder/maske2.jpeg" class="kate"></a>
-        <div class="textkate"> %SALE </div>
-      </div>
+        <div class="produkte">
 
-      <div onmouseover="bigImg(this)" onmouseout="normalImg(this)" class="flexelement-box2">
-        <a href=""><img src="bilder/tshirt.jpeg" class="kate"></a>
-        <div class="textkate"> M&Auml;NNER </div>
-      </div>
+          <div class="produkt">
+            <div class="prdimage">
+              <img src="bilder/maske.jpeg" class="prdimg">
+            </div>
+            <div class="prdbeschreibung">
+              Produkt abc
+            </div>
+            <div class="prdpreis">
+              7000€
+            </div>
+          </div>
 
-      <div onmouseover="bigImg(this)" onmouseout="normalImg(this)" class="flexelement-box3">
-        <a href=""><img src="bilder/maske.jpeg" class="kate"></a>
-        <div class="textkate"> FRAUEN </div>
-      </div>
+          <div class="produkt">
+            <div class="prdimage">
+              <img src="bilder/tshirt.jpeg" class="prdimg">
+            </div>
+            <div class="prdbeschreibung">
+              Produkt abc
+            </div>
+            <div class="prdpreis">
+              7000€
+            </div>
+          </div>
 
-      <div onmouseover="bigImg(this)" onmouseout="normalImg(this)" class="flexelement-box4">
-        <a href=""><img src="bilder/maske1.jpeg" class="kate"></a>
-        <div class="textkate"> ACCESSOIRES </div>
+        </div>
+
+        <div class="zsmfassung">
+          Gesamtsumme, Versandkosten etc...
+        </div>
+
+        <div class="buttons">
+          <button class="weitereinkaufen">Weiter einkaufen</button>
+          <button class="kasse">Weiter zur Kasse</button>
+        </div>
       </div>
     </div>
   </main>
-
 </body>
+
 </html>

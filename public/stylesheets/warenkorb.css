@@ -1,0 +1,100 @@
+
+
+    .links{
+        float: left;
+        width: 30%;
+        border: 2px solid #00366a;
+        height: 50%;
+        padding-top: 0;
+        box-shadow: 1px 1px 1px black;
+    }
+
+    .rechts {
+        float: right;
+        width: 69%;
+        height: 100%;
+        padding: 0;
+    }
+
+    .warencontainer {
+        margin-top: 50px;
+        height: 100%;
+    }
+
+    div p {
+        font-family: 'SourceSansPro-Bold','SourceSansPro-Regular',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-weight: 500;
+        color: white;
+    }
+
+    .deinwarenkorb {
+        margin-top: -15px;
+        background-color: #00366a;
+        height: 50px;
+        text-align: center;
+        box-shadow: 2px 2px 2px black;
+    }
+
+
+
+    /* Warenkorb Produkte rechts  */
+
+    .produkte {
+        width: 100%;
+        height: 90%;
+    }
+    .produkt {
+        margin-top: 20px;
+        height: 90px;
+    }
+
+
+    .prdimage, .prdbeschreibung, .prdpreis {
+        float: left;
+    }
+
+    .prdimage {
+        width: 19%;
+        height: 100%;
+        border: 1px solid;
+    }
+    .prdimg {
+        width: auto;
+        height: 100%;
+    }
+
+    .prdbeschreibung {
+        width: 60%;
+        height: 100%;
+        border: 1px solid;
+    }
+
+    .prdpreis {
+        width: 20%;
+        height: 100%;
+        border: 1px solid;
+    }
+
+    /* Container ZUSAMMENFASSUNG */
+
+    .zsmfassung {
+        width: 100%;
+        height: 50px;
+        border: 3px solid #00366a;
+    }
+
+    /* Warenkorb Buttons */
+    .buttons{
+        margin-top: 50px;
+        height: 50px;
+    }
+
+    .weitereinkaufen {
+        float:left;
+        height: 100%;
+    }
+    .kasse {
+        float: right;
+        height: 100%;
+    }
+
