@@ -47,46 +47,107 @@
   <main>
     <div class="warencontainer">
       <div class="links">
-        <div>
-          Erreichbarkeit...
+        <div class="links-logo">
+          <img src="bilder/logo.png" class="links-logo-logo">
         </div>
+
+        <div class="links-sale">%SALE</div>
+        <div class="links-manner">M&Auml;NNER</div>
+        <div class="links-frauen">FRAUEN</div>
+        <div class="links-accessoires">ACCESSOIRES</div>
       </div>
       <div class="rechts">
 
         <div class="deinwarenkorb">
-          <p>DEIN WARENKORB</p>
+
+          <div class="deinwarenkorb-text">
+            <p class="titelwarenkorb">Dein Warenkorb</p> 
+            <br>
+            <p class="textwarenkorb"> Du hast fragen zur Bestellung? Dann können wir dir leider nicht weiterhelfen!</p>
+          </div>
+
+          <div class="deinwarenkorb-button">
+            <div class="dw-button-button">
+              <p>Zur Kasse ></p>
+            </div>
+          </div>
         </div>
 
         <div class="produkte">
 
-          <div class="produkt">
-            <div class="prdimage">
-              <img src="bilder/maske.jpeg" class="prdimg">
+          <div class="tabelle-toprow">
+            <div class="toprow-titel">Artikel</div>
+            <div class="toprow-anzahl">Anzahl</div>
+            <div class="toprow-stuckpreis">St&uuml;ckpreis</div>
+            <div class="toprow-summe">Summe</div>
+            <div class="toprow-blank"></div>
+          </div>
+
+          <div class="tabelle-produkt">
+            <div class="tabelle-produkt-artikel">
+              <div class="tabelle-produkt-artikel-img">
+                <img src="bilder/maske.jpeg" class="tabelle-produkt-artikel-img-img">
+              </div>
+              <div class="tabelle-produkt-artikel-text">
+                <p class="artikel-text-header">Offizielle Maske der HS Alb-Sig</p>
+                <p>100% Baumwolle</p>
+              </div>
             </div>
-            <div class="prdbeschreibung">
-              Produkt abc
+
+            <div class="tabelle-produkt-anzahl">
+              <select>
+                  <option value="1" selected="selected">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+              </select>
             </div>
-            <div class="prdpreis">
-              7000€
+
+            <div class="tabelle-produkt-stuckpreis">
+              <p>9,99€</p>
+            </div>
+
+            <div class="tabelle-produkt-summe">
+              <p>9,99€</p>
+            </div>
+
+            <div class="tabelle-produkt-blank">
+              <p>X</p>
             </div>
           </div>
 
-          <div class="produkt">
-            <div class="prdimage">
-              <img src="bilder/tshirt.jpeg" class="prdimg">
-            </div>
-            <div class="prdbeschreibung">
-              Produkt abc
-            </div>
-            <div class="prdpreis">
-              7000€
-            </div>
-          </div>
+
 
         </div>
 
         <div class="zsmfassung">
-          Gesamtsumme, Versandkosten etc...
+
+          <div class="zsm-links">
+            <!--LEAVE BLANK, DANKE!-->
+          </div>
+
+          <div class="zsm-rechts">
+            <div class="zsm-rechts-links">
+              <p>Summe:</p>
+              <p>Service-/Versandkosten:</p>
+              <p class="zsm-rechts-links-gesamt">Gesamtsumme:</p>
+              <p class="zsm-rechts-links-mwst">Gesamtsumme ohne MwSt:</p>
+              <p class="zsm-rechts-links-mwst">zzgl. 19% MwSt.:</p>
+            </div>
+            <div class="zsm-rechts-rechts">
+              <p>9,99€</p>
+              <p>5,00€</p>
+              <p class="zsm-rechts-rechts-gesamt">14,99€</p>
+              <p class="zsm-rechts-rechts-mwst">10,99€</p>
+              <p class="zsm-rechts-rechts-mwst">4€</p>
+            </div>
+          </div>
         </div>
 
         <div class="buttons">
