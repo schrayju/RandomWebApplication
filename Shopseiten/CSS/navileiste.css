@@ -5,6 +5,60 @@ body{
     max-width: 1500px;
 }
 
+/*--------------------------------------
+TOOLTIP*/
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 180px;
+    background-color:#00336a;
+    border: 3px solid white;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    top: 100%;
+    left: 50%;
+    margin-left: -180px; /*use half of the width!*/
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .tooltiptext button, 
+  .tooltiptext input[type="button"]{
+      height: 30px;
+      color: white;
+      background-color: #00336a;
+      border: 3px solid #00336a;
+      border-radius: 6px;
+      font-size: 15px;
+      margin: 5px 0 5px 0;
+  }
+
+  .tooltiptext button:hover, 
+  .tooltiptext input[type="button"]:hover{
+      color:#00336a;
+      background-color: white;
+      cursor: pointer;
+  }
+
+/*END TOOLTIP----------------------*/
+
+
 /*--------------------------------------------------*/
 /* NAVILEISTE ANFANG */
 @media screen and (min-width:1px){
@@ -383,6 +437,7 @@ body{
         height: auto;
 
         display: flex;
+        flex-direction: row;
         flex-wrap: nowrap;
         justify-content:right;
 
@@ -472,11 +527,6 @@ body{
         color:white;
     }
 
-    .placeholder{
-        background-color: blueviolet;
-        height: 300px;
-        margin: 15px 0 15px 0;
-    }
 }
 /* NAVILEISTE ENDE */
 /*--------------------------------------------------*/

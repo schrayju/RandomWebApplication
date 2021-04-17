@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/warenkorb.css">
     <link rel="stylesheet" type="text/css" href="../CSS/fussleiste.css">
     <script src="../Javascript/cartSumCalc.js"></script>
+    <script src="../Javascript/account.js"></script> <!--Für Logout-->
 
     <meta charset="utf-8">
     <title>HS-Shop: Warenkorb</title>
@@ -31,7 +32,14 @@
                         <div class="searchbar"><form action="">
                             <input type="search" maxlength="50" placeholder="Suche..">
                             <button type="submit">Go!</button></form></div>
-                        <a title="Account" href="../HTML/anmeldung.html"><img src="../Bilder/navi_account.png" alt="Account"></a>
+                        <div class="tooltip">
+                            <a title="Account" href="../HTML/account.html"><img src="../Bilder/navi_account.png" alt="Account"></a>
+                            <span class="tooltiptext">
+                                <a href="../HTML/anmeldung.html"><button>Anmelden/Registrieren</button></a><br>
+                                <input type="button" oncklick="logout()" value="Ausloggen">
+                            </span>
+
+                        </div>
                     </div>
                 </div>
     
@@ -48,7 +56,7 @@
                 
         </div>
     </nav>
-    <!--ENDE FLEXBOX-->
+    <!--ENDE FLEXBOX--> 
 
 
     <!--WARENKORB-->
@@ -96,7 +104,7 @@
                 <div class="tabelle_content">
                     <div class="tabelle_artikel">
                         <div>
-                            <img src="maske.jpeg">
+                            <img src="../Bilder/maske.jpeg">
                         </div>
                         <div>
                             <span class="artikelname">Offizielle Maske der HS-AlbSig</span><br>
@@ -140,7 +148,7 @@
                 <div class="tabelle_content">
                     <div class="tabelle_artikel">
                         <div>
-                            <img src="maske1.jpeg">
+                            <img src="../Bilder/maske1.jpeg">
                         </div>
                         <div>
                             <span class="artikelname">Offizielle Maske der HS-AlbSig</span><br>

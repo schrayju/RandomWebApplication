@@ -30,7 +30,14 @@
                         <div class="searchbar"><form action="">
                             <input type="search" maxlength="50" placeholder="Suche..">
                             <button type="submit">Go!</button></form></div>
-                        <a title="Account" href="../HTML/anmeldung.html"><img src="../Bilder/navi_account.png" alt="Account"></a>
+                        <div class="tooltip">
+                            <a title="Account" href="../HTML/account.html"><img src="../Bilder/navi_account.png" alt="Account"></a>
+                            <span class="tooltiptext">
+                                <a href="../HTML/anmeldung.html"><button>Anmelden/Registrieren</button></a><br>
+                                <input type="button" oncklick="logout()" value="Ausloggen">
+                            </span>
+
+                        </div>
                     </div>
                 </div>
     

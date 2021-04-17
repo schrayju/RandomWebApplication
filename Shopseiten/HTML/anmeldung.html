@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/anmeldung.css">
     <link rel="stylesheet" type="text/css" href="../CSS/fussleiste.css">
     <script src="../Javascript/anmeldung.js"></script>
+    <script src="../Javascript/account.js"></script> <!--Für Logout-->
 
     <meta charset="utf-8">
     <title>HS-Shop: Anmelden/Registrieren</title>
@@ -30,7 +31,14 @@
                         <div class="searchbar"><form action="">
                             <input type="search" maxlength="50" placeholder="Suche..">
                             <button type="submit">Go!</button></form></div>
-                        <a title="Account" href="../HTML/anmeldung.html"><img src="../Bilder/navi_account.png" alt="Account"></a>
+                        <div class="tooltip">
+                            <a title="Account" href="../HTML/account.html"><img src="../Bilder/navi_account.png" alt="Account"></a>
+                            <span class="tooltiptext">
+                                <a href="../HTML/anmeldung.html"><button>Anmelden/Registrieren</button></a><br>
+                                <input type="button" oncklick="logout()" value="Ausloggen">
+                            </span>
+
+                        </div>
                     </div>
                 </div>
     
@@ -61,7 +69,7 @@
                     <input type="text" name="anmelden" maxlength="40"><br>
                     <text>Passwort:</text><br>
                     <input type="password" name="anmelden" minlength="8"><br>
-                    <a href="../HTML/reset_password.html">Passwort vergessen?</a><br>
+                    <a href="../HTML/reset_change_password.html">Passwort vergessen?</a><br>
                     <input type="submit" value="Anmelden">
                 </form>
             </div>
@@ -108,12 +116,12 @@
 
                     <div class="passwort">
                         <text>Passwort</text><br>
-                        <input type="password" id="passwort" name="passwort" minlength="8" required="on" onkeyup="comparePasswords(), checkPasswordStrength()"> 
+                        <input type="password" id="passwort" name="passwort" minlength="8" required="on" onkeyup="comparePasswords()"> 
                     </div>
 
                     <div class="passwort">
                         <text>Passwort Wiederholung</text><br>
-                        <input type="password" id="passwort_wdh" name="passwort" minlength="8" required="on" onkeyup="comparePasswords(), checkPasswordStrength()"><br>
+                        <input type="password" id="passwort_wdh" name="passwort" minlength="8" required="on" onkeyup="comparePasswords()"><br>
                         <b id="alertPassword" style="color: red; font-size: 13px;"></b> <!--Für die Ausgabe comparePasswords() in anmeldung.js-->
                     </div>
 
