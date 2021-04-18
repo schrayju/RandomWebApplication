@@ -18,15 +18,14 @@ TOOLTIP*/
   .tooltip .tooltiptext {
     visibility: hidden;
     width: 180px;
-    background-color:#00336a;
-    border: 3px solid white;
+    background-color:#e32f06;
     color: #fff;
     text-align: center;
     border-radius: 6px;
     padding: 5px;
     top: 100%;
     left: 50%;
-    margin-left: -180px; /*use half of the width!*/
+    margin-left: -120px; /*use half of the width!*/
    
     /* Position the tooltip text - see examples below! */
     position: absolute;
@@ -40,10 +39,10 @@ TOOLTIP*/
 
   .tooltiptext button, 
   .tooltiptext input[type="button"]{
-      height: 30px;
-      color: white;
-      background-color: #00336a;
-      border: 3px solid #00336a;
+      height: 35px;
+      color: #00336a;
+      background-color: white;
+      border: 3px solid white;
       border-radius: 6px;
       font-size: 15px;
       margin: 5px 0 5px 0;
@@ -51,8 +50,8 @@ TOOLTIP*/
 
   .tooltiptext button:hover, 
   .tooltiptext input[type="button"]:hover{
-      color:#00336a;
-      background-color: white;
+      color:white;
+      background-color: #00336a;
       cursor: pointer;
   }
 
