@@ -95,6 +95,10 @@ body{
     font-size: 18px;
 }
 
+.content hr{
+    color: #00336a;
+}
+
 
 @media screen and (min-width: 1px){
     body{
