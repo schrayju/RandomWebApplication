@@ -85,8 +85,7 @@
                 <form class="form_kreditkarte" action="" method="">
                     <div class="kartennummer">
                         <text>Kreditkartennummer</text><br>
-                        <input type="text" name="kartennummer" required="on" maxlength="16" onkeyup="checkUsername()">
-                    </div>
+                        <input type="number" id="kartennummer" name="kartennummer" required="on" maxlength="16">                    </div>
 
                     <div class="ccv">
                         <text>CCV</text><br>
@@ -121,7 +120,8 @@
 
                     <div class="ccv">
                         <text>IBAN</text><br>
-                        <input type="text" name="iban" required="on" maxlength="24" onkeyup="checkIfIBAN()">
+                        <input type="text" id="iban" name="iban" required="on" maxlength="24" onkeyup="checkIfIBAN()">
+                        <b id="fault2" style="color: red;"></b>
                     </div>
 
                     <div class="BIC">
