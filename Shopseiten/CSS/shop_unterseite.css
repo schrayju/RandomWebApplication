@@ -44,7 +44,7 @@ body{
     word-break: break-all;
 }
 
-hr{
+.content hr{
     width: 100%;
     color: #00336a;
 }
