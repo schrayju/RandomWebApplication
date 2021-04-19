@@ -4,6 +4,7 @@
         <link rel="stylesheet" type="text/css" href="../CSS/navileiste.css">
         <link rel="stylesheet" type="text/css" href="../CSS/agb_und_impressum.css">
         <link rel="stylesheet" type="text/css" href="../CSS/fussleiste.css">
+        <script src="../Javascript/suche.js"></script>
         <script src="../Javascript/account.js"></script> <!--Für Logout-->
 
         <meta charset="utf-8">
@@ -28,9 +29,9 @@
                     </div>
     
                     <div class="menu_top_right">
-                        <div class="searchbar"><form action="">
-                            <input type="search" maxlength="50" placeholder="Suche..">
-                            <button type="submit">Go!</button></form></div>
+                        <div class="searchbar"><form action="../HTML/suche.html" method="">
+                            <input type="search" id="suche" maxlength="50" placeholder="Suche..">
+                            <button type="submit" onclick="search()">Go!</button></form></div>
                         <div class="tooltip">
                             <a title="Account" href="../HTML/account.html"><img src="../Bilder/navi_account.png" alt="Account"></a>
                             <span class="tooltiptext">
