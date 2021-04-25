@@ -1,6 +1,6 @@
 "# RandomWebApplication-" 
 
-#Ordner SHOPSEITEN:
+#Ordner Website:
 HTML:   - index.html --> Startseite
         - 
 
@@ -8,3 +8,8 @@ CSS:    - shop_hauptseite.css: für Hauptseite der Kategorien(Männer_Home, Frau
         - shop_unterseite.css: für die Produktseiten der Kategorien
 
         
+
+#Ordner db_hsshop
+In diesem Ordner befindet sich die Datenbank des Online Shops.
+
+
