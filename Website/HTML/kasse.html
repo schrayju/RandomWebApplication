@@ -86,17 +86,17 @@
                 <form class="form_kreditkarte" action="" method="">
                     <div class="kartennummer">
                         <text>Kreditkartennummer</text><br>
-                        <input type="number" id="kartennummer" name="kartennummer" maxlength="16" required="on">
+                        <input type="number" id="kartennummer" name="kartennummer" maxlength="16" required>
                     </div>
                     
                     <div class="ccv">
                         <text>CCV</text><br>
-                        <input type="number" name="ccv" required="on" maxlength="3" onkeyup="checkIfNumber()">
+                        <input type="number" name="ccv" required maxlength="3" onkeyup="checkIfNumber()">
                     </div>
 
                     <div class="ablaufdatum">
                         <text>Ablaufdatum</text><br>
-                        <input type="month" name="benutzername" required="on" placeholder="yyyy/MM">
+                        <input type="month" name="benutzername" required placeholder="yyyy/MM">
                     </div>
 
                     <hr>
@@ -108,16 +108,16 @@
 
                     <div class="plz">
                         <text>PLZ</text><br>
-                        <input type="number" name="plz" required="on" maxlength="5">
+                        <input type="number" name="plz" maxlength="5" required>
                     </div>
 
                     <div class="stadt">
                         <text>Stadt</text><br>
-                        <input type="text" name="stadt" required="on">
+                        <input type="text" name="stadt" required>
                     </div>
 
                     <div class="agb">
-                        <input type="checkbox" name="agb" required="on">
+                        <input type="checkbox" name="agb" required>
                         Ich stimme den <a href="../HTML/agb.html">AGBs</a> zu.
                     </div>
 
@@ -134,41 +134,41 @@
                 <form class="form_sepa" action="" method="">
                     <div class="iban">
                         <text>Kontoinhaber</text><br>
-                        <input type="text" name="kontoinhaber" required="on" onkeyup="">
+                        <input type="text" name="kontoinhaber" required onkeyup="">
                     </div>
 
                     <div class="ccv">
                         <text>IBAN</text><br>
-                        <input type="text" id="iban" name="iban" required="on" maxlength="24" onkeyup="checkIfIBAN()">
+                        <input type="text" id="iban" name="iban" required maxlength="24" onkeyup="checkIfIBAN()">
                         <b id="fault2" style="color: red;"></b>
                     </div>
 
                     <div class="BIC">
                         <text>BIC</text><br>
-                        <input type="text" name="bic" required="on" maxlength="">
+                        <input type="text" name="bic" required maxlength="">
                     </div>
 
                     <hr>
 
                     <div class="strasse">
                         <text>Straße, Hausnummer</text><br>
-                        <input type="text" name="strasse" required="on">
+                        <input type="text" name="strasse" required>
                     </div>
 
                     <div class="ort">
                         <div class="plz">
                             <text>PLZ</text><br>
-                            <input type="number" name="plz" required="on" maxlength="5">
+                            <input type="number" name="plz" required maxlength="5">
                         </div>
 
                         <div class="stadt">
                             <text>Stadt</text><br>
-                            <input type="text" name="stadt" required="on">
+                            <input type="text" name="stadt" required>
                         </div>
                     </div>
 
                     <div class="agb">
-                        <input type="checkbox" name="agb" required="on">
+                        <input type="checkbox" name="agb" required>
                         Ich stimme den <a href="../HTML/agb.html">AGBs</a> zu.
                     </div>
 
@@ -192,23 +192,23 @@
 
                 <div class="strasse">
                     <text>Straße, Hausnummer</text><br>
-                    <input type="text" name="strasse" required="on">
+                    <input type="text" name="strasse" required>
                 </div>
 
                 <div class="ort">
                     <div class="plz">
                         <text>PLZ</text><br>
-                        <input type="number" name="plz" required="on" maxlength="5">
+                        <input type="number" name="plz" required maxlength="5">
                     </div>
 
                     <div class="stadt">
                         <text>Stadt</text><br>
-                        <input type="text" name="stadt" required="on">
+                        <input type="text" name="stadt" required>
                     </div>
                 </div>
 
                 <div class="agb">
-                    <input type="checkbox" name="agb" required="on">
+                    <input type="checkbox" name="agb" required>
                     Ich stimme den <a href="../HTML/agb.html">AGBs</a> zu.
                 </div>
 
