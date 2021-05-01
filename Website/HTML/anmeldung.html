@@ -97,32 +97,32 @@
 
                     <div class="form_vorname">
                         <text>Vorname</text><br>
-                        <input type="text" id="vorname" name="vorname" maxlength="40" required="on">
+                        <input type="text" id="vorname" name="vorname" maxlength="40" required>
                     </div>
 
                     <div class="form_nachname">
                         <text>Nachname</text><br>
-                        <input type="text" id="nachname" name="nachname" maxlength="40" required="on">
+                        <input type="text" id="nachname" name="nachname" maxlength="40" required>
                     </div>
 
                     <div class="form_benutzername">
                         <text>Benutzername</text><br>
-                        <input type="text" name="benutzername" required="on" maxlength="20" onkeyup="checkUsername()">
+                        <input type="text" name="benutzername" required maxlength="20" onkeyup="checkUsername()">
                     </div>
 
                     <div class="email">
                         <text>E-Mail</text><br>
-                        <input type="email" name="email" required="on">
+                        <input type="email" name="email" required>
                     </div>
 
                     <div class="passwort">
                         <text>Passwort</text><br>
-                        <input type="password" id="passwort" name="passwort" minlength="8" required="on" onkeyup="comparePasswords()"> 
+                        <input type="password" id="passwort" name="passwort" minlength="8" required onkeyup="comparePasswords()"> 
                     </div>
 
                     <div class="passwort">
                         <text>Passwort Wiederholung</text><br>
-                        <input type="password" id="passwort_wdh" name="passwort" minlength="8" required="on" onkeyup="comparePasswords()"><br>
+                        <input type="password" id="passwort_wdh" name="passwort" minlength="8" required onkeyup="comparePasswords()"><br>
                         <b id="alertPassword" style="color: red; font-size: 13px;"></b> <!--Für die Ausgabe comparePasswords() in anmeldung.js-->
                     </div>
 
@@ -138,11 +138,31 @@
 
                     <div class="sicherheitsantwort">
                         <text>Antwort</text><br>
-                        <input type="text" id="sicherheitsantwort" name="sicherheitsantwort" required="on">
+                        <input type="text" id="sicherheitsantwort" name="sicherheitsantwort" required>
+                    </div>
+					
+					<div class="form_strasse">
+                        <text>Straße, Hausnummer</text><br>
+                        <input type="text" id="strasse" name="strasse" required>
+                    </div>
+					
+					<div class="form_plz">
+                        <text>PLZ</text><br>
+                        <input type="number" id="plz" name="plz" maxlength="5" required>
+                    </div>
+					
+					<div class="form_stadt">
+                        <text>Stadt</text><br>
+                        <input type="text" id="stadt" name="stadt" required>
+                    </div>
+					
+					<div class="form_nachname">
+                        <text>Nachname</text><br>
+                        <input type="text" id="nachname" name="nachname" maxlength="40" required>
                     </div>
 
                     <div class="agb">
-                        <input type="checkbox" name="agb" required="on">
+                        <input type="checkbox" name="agb" required>
                         Ich stimme den <a href="../HTML/agb.html">AGBs</a> zu.
                     </div>
 
