@@ -21,6 +21,19 @@ class ProduktkategorieDao {
         return helper.objectKeysToLower(result);
     }
 
+
+//HABE ICH HINZUGEFÜGT------------------------------------------
+    loadCat(id) {
+        var sql = 'SELECT * FROM Produktkategorie WHERE Oberkategorie=?';
+        var statement = this._conn.prepare(sql);
+        var result = statement.get(id);
+
+        if (helper.isUndefined(result))
+            throw new Error('No Record found by id=' +id);
+        
+        return helper.objectKeysToLower(result);
+    }
+
     loadAll() {
         var sql = 'SELECT * FROM Produktkategorie';
         var statement = this._conn.prepare(sql);

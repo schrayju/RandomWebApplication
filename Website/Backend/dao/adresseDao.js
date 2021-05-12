@@ -23,9 +23,6 @@ class AdresseDao {
 
         result = helper.objectKeysToLower(result);
 
-        result.land = landDao.loadById(result.landid);
-        delete result.landid;
-
         return result;
     }
 
@@ -42,15 +39,6 @@ class AdresseDao {
         
         result = helper.arrayObjectKeysToLower(result);
 
-        for (var i = 0; i < result.length; i++) {
-            for (var element of countries) {
-                if (element.id == result[i].landid) {
-                    result[i].land = element;
-                    break;
-                }
-            }
-            delete result[i].landid;
-        }
 
         return result;
     }
@@ -66,10 +54,10 @@ class AdresseDao {
         return false;
     }
 
-    create(strasse = '', hausnummer = '', adresszusatz = '', plz = '', ort = '', landid = 1) {
-        var sql = 'INSERT INTO Adresse (Strasse,Hausnummer,Adresszusatz,PLZ,Ort,LandID) VALUES (?,?,?,?,?,?)';
+    create(strassehausnr = '', plz = '', stadt = '') {
+        var sql = 'INSERT INTO Adresse (StrasseHausnr,PLZ,Stadt) VALUES (?,?,?)';
         var statement = this._conn.prepare(sql);
-        var params = [strasse, hausnummer, adresszusatz, plz, ort, landid];
+        var params = [strassehausnr, plz, stadt];
         var result = statement.run(params);
 
         if (result.changes != 1) 
@@ -79,10 +67,10 @@ class AdresseDao {
         return newObj;
     }
 
-    update(id, strasse = '', hausnummer = '', adresszusatz = '', plz = '', ort = '', landid = 1) {
-        var sql = 'UPDATE Adresse SET Strasse=?,Hausnummer=?,Adresszusatz=?,PLZ=?,Ort=?,LandID=? WHERE ID=?';
+    update(id, strassehausnr = '', plz = '', stadt = '') {
+        var sql = 'UPDATE Adresse SET StrasseHausnr=?,PLZ=?,Stadt=? WHERE ID=?';
         var statement = this._conn.prepare(sql);
-        var params = [strasse, hausnummer, adresszusatz, plz, ort, landid, id];
+        var params = [id,strassehausnr, plz, stadt];
         var result = statement.run(params);
 
         if (result.changes != 1) 

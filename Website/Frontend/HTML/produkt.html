@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/fussleiste.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../Javascript/sessionHandling.js"></script>
+    <script src="../Javascript/urlParameter.js"></script>
     <script src="../Javascript/suche.js"></script>
     <script src="../Javascript/account.js"></script> <!--Für Logout-->
     <script src="../Javascript/cart.js"></script> <!--Für Ablegen in Warenkorb-->
@@ -117,6 +118,10 @@
         $(document).ready(function(){
             console.log('Document ready, loading data from Service');
 
+            var oberkategorie = getUrlFirstParameterValue('oberkategorie');
+            var id = getUrlThirdParameterValue('id');
+            console.log('ProduktID:'+id);
+
             $.ajax({
                 url: 'http://localhost:8000/wba2api/produkt/alle',
                 method: 'get',
@@ -125,24 +130,33 @@
                 console.log('Data loaded successfully');
                 console.log(response);
 
-                var oberkategorie = localStorage.getItem('Oberkategorie');
-                var unterkategorie = localStorage.getItem('Unterkategorie');
-                var produktid = localStorage.getItem('ProduktID');
-                console.log("ProduktID: "+produktid);
 
                 //Tabtitel
-                var content = "<title>HS-Shop: " + response.daten[produktid-1].title + "</title>";
+                var content = "<title>HS-Shop: " + response.daten[id].titel + "</title>";
                 $('head').append(content);
 
 
                 //PRODUKT
-                var obj = response.daten[produktid-1];
+                var obj = response.daten[id];
 
                 // Bild
                 $('.produkt_image').html("<img src="+obj.bild+" alt='produkt'>");
 
                 //Produkttitel
                 document.getElementById('uberschrift').innerHTML = obj.titel;
+
+                //Preis
+                var alterpreis = (obj.nettopreis*(obj.mehrwertsteuer/100+1)).toFixed(2);
+                var preis = (alterpreis*0.9).toFixed(2);
+                if (oberkategorie == 'Sale'){
+                    
+                    document.getElementById('preis').innerHTML = '<span><del>' + alterpreis + '</del>\t</span><span>' +preis +'</span>';
+                }
+                else{
+                    document.getElementById('preis').innerHTML = alterpreis;
+
+                }
+                document.getElementById
 
                 //Beschreibung
                 document.getElementById('beschreibung').innerHTML = obj.beschreibung;

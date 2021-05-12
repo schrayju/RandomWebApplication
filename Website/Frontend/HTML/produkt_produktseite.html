@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/fussleiste.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../Javascript/sessionHandling.js"></script>
+    <script src="../Javascript/urlParameter.js"></script>
     <script src="../Javascript/suche.js"></script>
     <script src="../Javascript/filter.js"></script>
     <script src="../Javascript/account.js"></script> <!--Für Logout-->
@@ -48,10 +49,10 @@
                 <hr width="95%">
     
                 <div class="menu_bottom">
-                    <div class="menu_item"><a href="produkt_hauptseite.html" onclick="selectPath('Sale')">Sale</a></div>
-                    <div class="menu_item"><a href="produkt_hauptseite.html" onclick="selectPath('Männer')">Männer</a></div>
-                    <div class="menu_item"><a href="produkt_hauptseite.html" onclick="selectPath('Frauen')">Frauen</a></div>
-                    <div class="menu_item"><a href="produkt_hauptseite.html" onclick="selectPath('Accessoires')">Accessoires</a></div>
+                    <div class="menu_item"><a href="../HTML/produkt_hauptseite.html?oberkategorie=Sale">Sale</a></div>
+                    <div class="menu_item"><a href="../HTML/produkt_hauptseite.html?oberkategorie=Männer">Männer</a></div>
+                    <div class="menu_item"><a href="../HTML/produkt_hauptseite.html?oberkategorie=Frauen">Frauen</a></div>
+                    <div class="menu_item"><a href="../HTML/produkt_hauptseite.html?oberkategorie=Accessoires">Accessoires</a></div>
                     <div class="menu_item"><a title="Warenkorb" href="../HTML/warenkorb.html"><img src="../Bilder/navi_warenkorb.png" alt="Cart"></a></div>
                 </div>
             </div>
@@ -141,12 +142,12 @@
         $(document).ready(function() {
             console.log('loading all products');
 
-            var oberkategorie = localStorage.getItem('Oberkategorie');
-            var unterkategorie = localStorage.getItem('Unterkategorie');
-            var unterkategorieID = localStorage.getItem('UnterkategorieID');
+            var oberkategorie = getUrlFirstParameterValue('oberkategorie');
+            var unterkategorie = getUrlSecondParameterValue('unterkategorie');
+            var id = getUrlThirdParameterValue('id');
+            console.log('Url-Parameter: Oberkategorie:'+oberkategorie+', Unterkategorie:'+unterkategorie+', Id:'+id);
 			
 			$.ajax({
-                //url: 'http://localhost:8000/wba2api/produkt/kategorie/:'+unterkategorieID,
                 url: 'http://localhost:8000/wba2api/produkt/alle',
                 method: 'get',
 				dataType: 'json'
@@ -154,16 +155,17 @@
                 console.log(response);
 
                 //Tabtitel
-                var content = "<title>HS-Shop: " + oberkategorie + " - " + unterkategorie + "</title>";
+                var content = "<title>HS-Shop: "+oberkategorie+" - "+unterkategorie+"</title>";
                 $('head').append(content);
 
                 //Pfad
                 var content="";
                 content += "<a href='../HTML/index.html'>Home</a>";
                 content += "<span>&#5171</span>";
-                content += "<a href='../HTML/produkt_hauptseite.html' >" + oberkategorie + "</a>";
+                content += "<a href='../HTML/produkt_hauptseite.html?oberkategorie="+oberkategorie+"'>" + oberkategorie + "</a>";
                 content += "<span>&#5171</span>";
-                content += "<a href='/' >" + unterkategorie;
+                content += "<a href='../HTML/produkt_produktseite.html?oberkategorie="+oberkategorie+";unterkategorie="+unterkategorie+";id="+id+"'>";
+                content += unterkategorie;
                 content += "</a> </div>";
 
                 $('.path').html(content);
@@ -174,25 +176,32 @@
                 for (i=0; i< response.daten.length; i++){
                     var obj = response.daten[i];
 
-           
-
-                    if (obj.kategorieid == unterkategorieID){
+                    //wenn Produkte der Kategorie id entsprechen -->laden
+                    if (obj.kategorieid == id){
                         content += ' <div class="clothe_box"> ';
-                        content += '<a href="../HTML/produkt.html" onclick="selectID('+ obj.id +')">';
+                        content += "<a href='../HTML/produkt.html?oberkategorie="+oberkategorie+";unterkategorie="+unterkategorie+";id="+obj.id+"'>";
                         content += '<img src="' + obj.bild + '" alt="Produktbild">';
-
-                        //Abfrage ob Sale-produkt
+                        if (oberkategorie == 'Sale'){
+                            content += '<span>' + obj.titel + '</span><br>';
+                            var preis =  (obj.nettopreis*(obj.mehrwertsteuer/100+1)).toFixed(2);
+                            content += '<span><del>' + preis + '</del>\t</span>';
+                            var neuerPreis = (preis *0.9).toFixed(2); //Rabatt
+                            content += '<span>' +neuerPreis +'</span>';
+                            content += '</a>';
+                            content += '</div>';
+                        }
+                        else{
+                            content += '<span>' + obj.titel + '</span><br>';
+                            var preis =  (obj.nettopreis*(obj.mehrwertsteuer/100+1)).toFixed(2);
+                            content += '<span>' + preis + '</span>';
+                            content += '</a>';
+                            content += '</div>';
+                        }
                         
-                        content += '<span>' + obj.titel + '</span><br>';
-                        var preis =  (obj.nettopreis*(obj.mehrwertsteuer/100+1)).toFixed(2);
-                        content += '<span>' + preis + '</span>';
-                        content += '</a>';
-                        content += '</div>';
                     }
                 }
 
                 $('.products').html(content);
-
 
             }).fail(function (jqXHR, statusText, error) {
                 console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
@@ -245,10 +254,10 @@
             <div class="footer_bottom">
                 <div class="footer_bottom_kategorien">
                     <h3>Kategorien</h3>
-                    <a href="../HTML/produkt_hauptseite.html" onclick="selectPath('Sale')">Sale %</a><br>
-                    <a href="../HTML/produkt_hauptseite.html" onclick="selectPath('Männer')">Männer</a><br>
-                    <a href="../HTML/produkt_hauptseite.html" onclick="selectPath('Frauen')">Frauen</a><br>
-                    <a href="../HTML/produkt_hauptseite.html" onclick="selectPath('Sale')">Accessoires</a><br>
+                    <a href="../HTML/produkt_hauptseite.html?oberkategorie=Sale">Sale %</a><br>
+                    <a href="../HTML/produkt_hauptseite.html?oberkategorie=Männer">Männer</a><br>
+                    <a href="../HTML/produkt_hauptseite.html?oberkategorie=Frauen">Frauen</a><br>
+                    <a href="../HTML/produkt_hauptseite.html?oberkategorie=Accessoires">Accessoires</a><br>
                 </div>
 
                 <div class="footer_bottom_rechtliches">

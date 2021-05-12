@@ -21,9 +21,5 @@ function checkUsername(){
 }
 
 
-//submit new users data
-function submitData(){
-    alert("Erfolgreich registiert!")
-    //create new entry for user in database
-}
+
 

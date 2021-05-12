@@ -176,34 +176,37 @@
     <!--ENDE FORMULAR-->
 
     <script>
-            console.log("Bestätigt:");
+        console.log("Ready");
 
-    $(document).ready(function() {
-        console.log('loading all products');
+        function submitData(){
+            $(document).ready(function() {
+                console.log('Loading formular');
 
+                $.ajax({
+                    url: 'http://localhost:8000/wba2api/adresse',
+                    method: 'post',
+                    data: FormData,
+                    dataType: 'json'
+                }).done(function (response){
+                    console.log(response);
 
-        $.ajax({
-            url: 'http://localhost:8000/wba2api/person',
-            method: 'post',
-            dataType: 'json'
-        }).done(function (response) {
-            console.log(response);
+                    var obj = response.FormData;
+                    var pos = obj.length;
+                    console.log('Anzahl Einträge: ' + pos);
 
-            //EIntrag
-            obj = response.daten;
-            obj.vorname = document.getElementById('vorname').value;
-            console.log
+                    //Adresseintrag
+                    obj.strassehausnr = document.getElementById('strasse').value;
+                    obj.plz = document.getElementById('plz').value;
+                    obj.stadt = document.getElementById('stadt').value;
 
-            
+                }).fail(function (jqXHR, statusText, error) {
+                    console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
+                    alert('Ein Fehler ist aufgetreten-Adresse');
+                });
 
-            
-
-
-        }).fail(function (jqXHR, statusText, error) {
-            console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
-            alert('Ein Fehler ist aufgetreten');
-        });
-    });
+                
+            });
+        }
 
     </script>
 

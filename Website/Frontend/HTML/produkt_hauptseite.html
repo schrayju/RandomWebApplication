@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/fussleiste.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../Javascript/sessionHandling.js"></script>
+    <script src="../Javascript/urlParameter.js"></script>
     <script src="../Javascript/suche.js"></script>
     <script src="../Javascript/account.js"></script> <!--Für Logout-->
 
@@ -46,10 +47,10 @@
                 <hr width="95%">
     
                 <div class="menu_bottom">
-                    <div class="menu_item"><a href="produkt_hauptseite.html" onclick="selectPath('Sale')">Sale</a></div>
-                    <div class="menu_item"><a href="produkt_hauptseite.html" onclick="selectPath('Männer')">Männer</a></div>
-                    <div class="menu_item"><a href="produkt_hauptseite.html" onclick="selectPath('Frauen')">Frauen</a></div>
-                    <div class="menu_item"><a href="produkt_hauptseite.html" onclick="selectPath('Accessoires')">Accessoires</a></div>
+                    <div class="menu_item"><a href="../HTML/produkt_hauptseite.html?oberkategorie=Sale">Sale</a></div>
+                    <div class="menu_item"><a href="../HTML/produkt_hauptseite.html?oberkategorie=Männer">Männer</a></div>
+                    <div class="menu_item"><a href="../HTML/produkt_hauptseite.html?oberkategorie=Frauen">Frauen</a></div>
+                    <div class="menu_item"><a href="../HTML/produkt_hauptseite.html?oberkategorie=Accessoires">Accessoires</a></div>
                     <div class="menu_item"><a title="Warenkorb" href="../HTML/warenkorb.html"><img src="../Bilder/navi_warenkorb.png" alt="Cart"></a></div>
                 </div>
             </div>
@@ -92,6 +93,9 @@
 
         $(document).ready(function(){
             console.log('Document ready, loading data from Service');
+            
+            var oberkategorie = getUrlFirstParameterValue('oberkategorie');
+            console.log("Url-Parameter: Oberkategorie:" + oberkategorie);
 
             $.ajax({
                 url: 'http://localhost:8000/wba2api/produktkategorie/alle',
@@ -101,11 +105,9 @@
                 console.log('Data loaded successfully');
                 console.log(response);
 
-                var Oberkategorie_Path = localStorage.getItem('Oberkategorie');
-                console.log('localStorage -> Oberkategorie: ' + Oberkategorie_Path);
 
                 //Tabtitel
-                var content = "<title>HS-Shop: " + Oberkategorie_Path + "</title>";
+                var content = "<title>HS-Shop: " + oberkategorie + "</title>";
                 $('head').append(content);
 
 
@@ -114,7 +116,7 @@
                 content += "<a href='../HTML/index.html'>Home</a>";
                 content += "<span>&#5171</span>";
                 content += "<a href='/' >";
-                content += Oberkategorie_Path;
+                content += oberkategorie;
                 content += '</a> </div>';
 
                 $('.path').html(content);
@@ -127,18 +129,16 @@
                 for (i = 0; i < response.daten.length; i++){
                     var obj = response.daten[i];
 
-                    if (obj.oberkategorie == Oberkategorie_Path){
+                    if (obj.oberkategorie == oberkategorie){
                         content += "<div class='auswahlmenu_item'>";
-                        content += "<div><a href='../HTML/produkt_produktseite.html' onclick=\"selectCat('"+obj.unterkategorie+"',"+obj.id+")\">";
+                        content += "<div><a href='../HTML/produkt_produktseite.html?oberkategorie="+oberkategorie+";unterkategorie="+obj.unterkategorie+";id="+obj.id+"'>";
                         content += obj.unterkategorie;
                         content += "</a></div>";
                         content += "<div><b>&#5171</b></div>";
                         content += "</div>";
                         content += "<hr class='line'>";
-
                         cover = obj.bild;
                     }
-
                 }
 
                 $('.auswahlmenu').html(content);
@@ -154,6 +154,8 @@
                 console.log('Response code: ' + jqXHR.status + ' - Message: ' + jqXHR.responseText);
                 alert(jqXHR.responseText);
             });
+
+            
         });
 
     </script>
@@ -201,10 +203,10 @@
             <div class="footer_bottom">
                 <div class="footer_bottom_kategorien">
                     <h3>Kategorien</h3>
-                    <a href="../HTML/produkt_hauptseite.html" onclick="selectPath('Sale')">Sale %</a><br>
-                    <a href="../HTML/produkt_hauptseite.html" onclick="selectPath('Männer')">Männer</a><br>
-                    <a href="../HTML/produkt_hauptseite.html" onclick="selectPath('Frauen')">Frauen</a><br>
-                    <a href="../HTML/produkt_hauptseite.html" onclick="selectPath('Sale')">Accessoires</a><br>
+                    <a href="../HTML/produkt_hauptseite.html?oberkategorie=Sale">Sale %</a><br>
+                    <a href="../HTML/produkt_hauptseite.html?oberkategorie=Männer">Männer</a><br>
+                    <a href="../HTML/produkt_hauptseite.html?oberkategorie=Frauen">Frauen</a><br>
+                    <a href="../HTML/produkt_hauptseite.html?oberkategorie=Accessoires">Accessoires</a><br>
                 </div>
 
                 <div class="footer_bottom_rechtliches">

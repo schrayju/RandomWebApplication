@@ -1,18 +1,3 @@
-//Eigener Code
-function selectPath(param){
-    localStorage.setItem('Oberkategorie', param);
-}
-
-function selectCat(param, id){
-    localStorage.setItem('Unterkategorie', param);
-    localStorage.setItem('UnterkategorieID', id);
-}
-
-function selectID(param){
-    localStorage.setItem('ProduktID',param);
-}
-
-//--------------------------------------------
 
 // sets or overwrites an value in local storage
 function setSessionItem(label, value) {
