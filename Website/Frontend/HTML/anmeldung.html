@@ -157,11 +157,7 @@
                         <text>Stadt</text><br>
                         <input type="text" id="stadt" name="stadt" required>
                     </div>
-					
-					<div class="form_nachname">
-                        <text>Nachname</text><br>
-                        <input type="text" id="nachname" name="nachname" maxlength="40" required>
-                    </div>
+				
 
                     <div class="agb">
                         <input type="checkbox" name="agb" required>
@@ -178,6 +174,38 @@
 
     </div>
     <!--ENDE FORMULAR-->
+
+    <script>
+            console.log("Bestätigt:");
+
+    $(document).ready(function() {
+        console.log('loading all products');
+
+
+        $.ajax({
+            url: 'http://localhost:8000/wba2api/person',
+            method: 'post',
+            dataType: 'json'
+        }).done(function (response) {
+            console.log(response);
+
+            //EIntrag
+            obj = response.daten;
+            obj.vorname = document.getElementById('vorname').value;
+            console.log
+
+            
+
+            
+
+
+        }).fail(function (jqXHR, statusText, error) {
+            console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
+            alert('Ein Fehler ist aufgetreten');
+        });
+    });
+
+    </script>
 
 
     <!--FUSSLEISTE-->

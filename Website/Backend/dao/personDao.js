@@ -80,7 +80,7 @@ class PersonDao {
         return false;
     }
 
-    create(anrede = 'Herr', vorname = '', nachname = '', , telefonnummer = '', email = '', geburtstag = null) {
+    create(anrede = 'Herr', vorname = '', nachname = '', adresseid = 1, telefonnummer = '', email = '', geburtstag = null) {
         var sql = 'INSERT INTO Person (Anrede,Vorname,Nachname,AdresseID,Telefonnummer,Email,Geburtstag) VALUES (?,?,?,?,?,?,?)';
         var statement = this._conn.prepare(sql);
         var params = [(helper.strStartsWith(anrede, 'He') ? 0 : 1), vorname, nachname, adresseid, telefonnummer, email, (helper.isNull(geburtstag) ? null : helper.formatToSQLDate(geburtstag))];
