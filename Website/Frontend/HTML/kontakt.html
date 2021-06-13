@@ -101,7 +101,12 @@
                         <text>E-Mail</text><br>
                         <input type="email" name="email" required="on">
                     </div>
-
+                    
+                    <div>
+                        <text>Betreff</text><br>
+                        <input type="text" id="betreff" name="betreff" maxlength="40" required="off">
+                    </div>
+                    
                     <div class="textarea">
                         <text>Ihr Anliegen</text><br>
                         <textarea placeholder="Geben Sie Ihren Text ein.."></textarea>
@@ -109,6 +114,7 @@
 
                     <div class="submit">
                         <input type="submit" value="Abschicken" onclick="sendForm()">
+                        <!-- <a href="mailto:kontakt.randomwebapplication@gmail.com?&body=Geben Sie hier Ihren Text ein!">{E-Mail Link}</a> -->
                     </div>
                     
                 </form>
